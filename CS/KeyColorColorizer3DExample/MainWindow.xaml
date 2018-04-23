@@ -1,0 +1,48 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:view="clr-namespace:KeyColorColorizer3DExample"
+        xmlns:viewModel="clr-namespace:KeyColorColorizer3DExample.ViewModel"
+        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" 
+        x:Class="KeyColorColorizer3DExample.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="399" Width="496">
+    <Window.DataContext>
+        <viewModel:GdpViewModel/>
+    </Window.DataContext>
+    <Grid>
+
+        <dxc:Chart3DControl AspectRatio="5,3,3"
+                            Padding="0">
+            <dxc:Chart3DControl.Legends>
+                <dxc:Legend HorizontalPosition="Right"
+                            VerticalPosition="Top"/>
+            </dxc:Chart3DControl.Legends>
+            <dxc:Series3DStorage>
+                <!--region #Series-->
+                <dxc:Series3D DisplayName="Gdps"
+                              YArgumentScaleType="Qualitative">
+                    <dxc:Series3D.View>
+                        <dxc:Bar3DSeriesView>
+                            <dxc:Bar3DSeriesView.Colorizer>
+                                <dxc:KeyColorColorizer3D>
+                                    <dxc:KeyColorColorizer3D.KeyProvider>
+                                        <dxc:ColorObjectKeyProvider3D/>
+                                    </dxc:KeyColorColorizer3D.KeyProvider>
+                                </dxc:KeyColorColorizer3D>
+                            </dxc:Bar3DSeriesView.Colorizer>
+                        </dxc:Bar3DSeriesView>
+                    </dxc:Series3D.View>
+                    <dxc:SeriesPoint3DDataSourceAdapter DataSource="{Binding Path=Gdps}"
+                                                        XArgumentDataMember="Country"
+                                                        YArgumentDataMember="Year"
+                                                        ValueDataMember="Value"
+                                                        ColorDataMember="Region"/>
+                </dxc:Series3D>
+                <!--endregion #Series-->
+            </dxc:Series3DStorage>
+        </dxc:Chart3DControl>
+
+    </Grid>
+</Window>
