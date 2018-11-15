@@ -1,3 +1,9 @@
+<!-- default file list -->
+*Files to look at*:
+
+* **[MainWindow.xaml](./CS/KeyColorColorizer3DExample/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/KeyColorColorizer3DExample/MainWindow.xaml))**
+* [GdpViewModel.cs](./CS/KeyColorColorizer3DExample/ViewModel/GdpViewModel.cs) (VB: [GdpViewModel.vb](./VB/KeyColorColorizer3DExample/ViewModel/GdpViewModel.vb))
+<!-- default file list end -->
 # How to colorize series point markers based on keys associated with points
 
 
